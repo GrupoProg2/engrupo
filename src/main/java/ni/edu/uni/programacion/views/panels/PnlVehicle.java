@@ -145,7 +145,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         btnBrowse = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         cmbStatus = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
 
@@ -444,11 +443,6 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(cmbStatus, gridBagConstraints);
 
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("jLabel15");
-        jLabel15.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel2.add(jLabel15, new java.awt.GridBagConstraints());
-
         add(jPanel2, java.awt.BorderLayout.CENTER);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -490,7 +484,6 @@ public class PnlVehicle extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

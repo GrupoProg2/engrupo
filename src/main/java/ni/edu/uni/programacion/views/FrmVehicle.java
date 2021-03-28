@@ -28,6 +28,7 @@ public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicleController pnlVehicleController;
     private PnlVehiclesList vehiclesList;
     private JsonVehicleDaoImpl vjdao;
+  
     
       
     /**
@@ -53,22 +54,18 @@ public class FrmVehicle extends javax.swing.JFrame {
         btnView = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         pnlTop = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         pnlContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Register of Vehicles");
 
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setOneTouchExpandable(true);
 
         jPanel1.setLayout(new java.awt.GridLayout(5, 1, 0, 5));
 
-        btnNew.setBackground(new java.awt.Color(153, 204, 255));
-        btnNew.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnNew.setForeground(new java.awt.Color(0, 51, 204));
+        btnNew.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnNew.setForeground(new java.awt.Color(0, 0, 153));
         btnNew.setText("New");
-        btnNew.setToolTipText("");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewActionPerformed(evt);
@@ -76,9 +73,9 @@ public class FrmVehicle extends javax.swing.JFrame {
         });
         jPanel1.add(btnNew);
 
-        btnView.setBackground(new java.awt.Color(153, 255, 153));
-        btnView.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        btnView.setForeground(new java.awt.Color(0, 147, 7));
+        btnView.setBackground(new java.awt.Color(102, 255, 102));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnView.setForeground(new java.awt.Color(51, 153, 0));
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,12 +87,6 @@ public class FrmVehicle extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
-
-        pnlTop.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        pnlTop.add(jLabel1);
-
         jPanel2.add(pnlTop, java.awt.BorderLayout.PAGE_START);
 
         pnlContent.setLayout(new java.awt.BorderLayout());
@@ -105,7 +96,7 @@ public class FrmVehicle extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(675, 565));
+        setSize(new java.awt.Dimension(675, 555));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -128,14 +119,39 @@ public class FrmVehicle extends javax.swing.JFrame {
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         if (vehiclesList == null) {
                     vehiclesList = new PnlVehiclesList();
-//                    pnlVehicleController = new PnlVehicleController(pnlVehicleController);
-            try {
-                pnlVehicleController = new  PnlVehicleController(pnlVehicle);
-            } catch (FileNotFoundException ex) {
-                JOptionPane.showMessageDialog(null,"This file does not exists", "Error Message",
-                        JOptionPane.ERROR_MESSAGE);
+                    //pnlVehicleController = new PnlVehicleController(vehiclesList);
+        }
+        
+        try {
+            vjdao = new JsonVehicleDaoImpl();
+          
+            //vjdao.create(v);
+            
+            List<Vehicle> vehicles = (List<Vehicle>) vjdao.getAll();
+            
+            String matris[][] = new String[vehicles.size()][5];
+            for(int i = 0; i < vehicles.size(); i++){
+                String año = String.valueOf(vehicles.get(i).getYear());
+                matris[i][0] = año;
+                matris[i][1] = vehicles.get(i).getMake();
+                matris[i][2] = vehicles.get(i).getModel();
+                matris[i][3] = vehicles.get(i).getStyle();
+                matris[i][4] = vehicles.get(i).getVin();
+                
             }
-                }
+            vehiclesList.getjTable2().setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            
+            new String [] {
+                "Year", "Make", "Model", "Style", "VIN"
+            }
+        ));
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(VehicleMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(VehicleMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
 
@@ -177,6 +193,7 @@ public class FrmVehicle extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmVehicle.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -189,7 +206,6 @@ public class FrmVehicle extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnView;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
