@@ -27,6 +27,7 @@ import ni.edu.uni.programacion.backend.dao.implementation.JsonVehicleDaoImpl;
 import ni.edu.uni.programacion.backend.pojo.Vehicle;
 import ni.edu.uni.programacion.backend.pojo.VehicleSubModel;
 import ni.edu.uni.programacion.views.panels.PnlVehicle;
+import ni.edu.uni.programacion.views.panels.PnlVehiclesList;
 
 /**
  *

@@ -145,10 +145,13 @@ public class PnlVehicle extends javax.swing.JPanel {
         btnBrowse = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         cmbStatus = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
         btnSave.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -163,7 +166,7 @@ public class PnlVehicle extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -441,7 +444,21 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(cmbStatus, gridBagConstraints);
 
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("jLabel15");
+        jLabel15.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel2.add(jLabel15, new java.awt.GridBagConstraints());
+
         add(jPanel2, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel16.setText("REGISTER OF VEHICLES");
+        jPanel3.add(jLabel16);
+
+        add(jPanel3, java.awt.BorderLayout.NORTH);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStockFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockFocusLost
@@ -473,6 +490,8 @@ public class PnlVehicle extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -483,6 +502,7 @@ public class PnlVehicle extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton rbtnAut;
     private javax.swing.JRadioButton rbtnMan;
     private javax.swing.JSpinner spnMiles;
